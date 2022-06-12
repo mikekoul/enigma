@@ -35,12 +35,21 @@ module Encryptable
       elsif turn == 4
          index = encrypt_d_shift(char, key, date)
          e_message << @char_set[index]
-      else
-        turn == 5
-        turn = 1
+      else turn == 5
+         index = encrypt_a_shift(char, key, date)
+         e_message << @char_set[index]
+         turn = 1
       end
     end
     e_message.join
   end
+
+  def encrypted_hash(message, key, date)
+    encrypt_hash = {
+    :encryption => encrypt_message(message),
+    :key => @key.key,
+    :date => @date.date }
+  end
+
 
 end

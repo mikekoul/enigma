@@ -22,14 +22,6 @@ class Enigma
     !@char_set.include?(char.downcase)
   end
 
-  # def encrypt(message, key, date)
-  #   encrypt_hash = {
-  #   :encryption => "keder ohulw",
-  #   :key => @key.key,
-  #   :date => @date.date }
-  # end
-  #
-  #
   # def decrypt(message, key, offset)
   #
   # end

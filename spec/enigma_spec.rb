@@ -42,12 +42,13 @@ RSpec.describe Enigma do
     expect(@enigma.encrypt_message("hello world")).to eq("keder ohulw")
   end
 
-  # it 'returns encrypted hash' do
-  # #   expect(@enigma.encrypt("hello world", "02715", "040895")).to eq(
-  #   {
-  #   encryption: "keder ohulw",
-  #   key: "02715",
-  #   date: "040895" }
-  # )
+  it 'returns encrypted hash' do
+    expect(@enigma.encrypted_hash("hello world", "02715", "040895")).to eq(
+    {
+    encryption: "keder ohulw",
+    key: "02715",
+    date: "040895" }
+  )
+  end
 
 end
