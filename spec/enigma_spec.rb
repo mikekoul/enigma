@@ -16,6 +16,12 @@ RSpec.describe Enigma do
     expect(@enigma.char_index("a")).to eq(0)
   end
 
+  it 'checks if punctuation and spaces are not included in character set' do
+    @enigma = Enigma.new('hello world!', '02715', '040895')
+    expect(@enigma.punc(' ')).to eq(false)
+    expect(@enigma.punc('!')).to eq(true)
+  end
+
   it 'return encrypted a shift value' do
     expect(@enigma.encrypt_a_shift("a", "02715", '040895')).to eq(3)
   end
@@ -32,13 +38,17 @@ RSpec.describe Enigma do
     expect(@enigma.encrypt_d_shift("d", "02715", '040895')).to eq(23)
   end
 
+  it 'return encrypted message' do
+    expect(@enigma.encrypt_message("hello world")).to eq("keder ohulw")
+  end
 
-  # it 'returns encrypt hash' do
-  #   expect(@enigma.encrypt("hello world", "02715", "040895")).to eq(
-  #   {
-  #   encryption: "keder ohulw",
-  #   key: "02715",
-  #   date: "040895"   })
-  # end
+  it 'returns encrypted hash' do
+    expect(@enigma.encrypted_hash("hello world", "02715", "040895")).to eq(
+    {
+    encryption: "keder ohulw",
+    key: "02715",
+    date: "040895" }
+  )
+  end
 
 end
