@@ -43,9 +43,38 @@ RSpec.describe Enigma do
   end
 
   it 'returns encrypted hash' do
-    expect(@enigma.encrypted_hash("hello world", "02715", "040895")).to eq(
+    expect(@enigma.encrypt("hello world", "02715", "040895")).to eq(
     {
     encryption: "keder ohulw",
+    key: "02715",
+    date: "040895" }
+  )
+  end
+
+  it 'return decrypted a shift value' do
+    expect(@enigma.decrypt_a_shift("k", "02715", '040895')).to eq(7)
+  end
+
+  it 'return decrypted b shift value' do
+    expect(@enigma.decrypt_b_shift("e", "02715", '040895')).to eq(4)
+  end
+
+  it 'return decrypted c shift value' do
+    expect(@enigma.decrypt_c_shift("d", "02715", '040895')).to eq(11)
+  end
+
+  it 'return decrypted d shift value' do
+    expect(@enigma.decrypt_d_shift("e", "02715", '040895')).to eq(11)
+  end
+
+  it 'return decrypted message' do
+    expect(@enigma.decrypt_message("keder ohulw")).to eq("hello world")
+  end
+
+  it 'returns decrypted hash' do
+    expect(@enigma.decrypt("keder ohulw", "02715", "040895")).to eq(
+    {
+    decryption: "hello world",
     key: "02715",
     date: "040895" }
   )
