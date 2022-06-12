@@ -10,7 +10,7 @@ RSpec.describe Key do
   end
 
   it 'return the key' do
-    expect(@key.key).to eq("02715")
+    expect(@key.num).to eq("02715")
   end
 
   it 'return value of a_shift' do
@@ -27,6 +27,10 @@ RSpec.describe Key do
 
   it 'return value of d_shift' do
     expect(@key.d_shift("02715")).to eq(15)
+  end
+
+  it 'can generate a random key' do
+    expect(@key.random_key).to be_a String
   end
 
 end
