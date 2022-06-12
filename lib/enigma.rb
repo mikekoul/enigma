@@ -7,7 +7,7 @@ class Enigma
   include Encryptable
 
   attr_reader :message, :key, :date
-  def initialize(message, key, date)
+  def initialize(message, key = random_key, date = Date.today.strftime('%d%m%y'))
     @message = message
     @key = Key.new(key)
     @date = Offset.new(date)
@@ -18,10 +18,17 @@ class Enigma
     @char_set.index(char)
   end
 
+  def punc(char)
+    !@char_set.include?(char.downcase)
+  end
 
-  # def encrypt(message, key, offset)
-  #
+  # def encrypt(message, key, date)
+  #   encrypt_hash = {
+  #   :encryption => "keder ohulw",
+  #   :key => @key.key,
+  #   :date => @date.date }
   # end
+  #
   #
   # def decrypt(message, key, offset)
   #
