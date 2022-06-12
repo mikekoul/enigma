@@ -67,6 +67,17 @@ RSpec.describe Enigma do
     expect(@enigma.decrypt_d_shift("e", "02715", '040895')).to eq(11)
   end
 
+  it 'return decrypted message' do
+    expect(@enigma.decrypt_message("keder ohulw")).to eq("hello world")
+  end
 
+  it 'returns decrypted hash' do
+    expect(@enigma.decrypt("keder ohulw", "02715", "040895")).to eq(
+    {
+    decryption: "hello world",
+    key: "02715",
+    date: "040895" }
+  )
+  end
 
 end

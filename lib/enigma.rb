@@ -28,6 +28,12 @@ class Enigma
     encrypt_message(message)
     encrypted_hash(message, key, date)
   end
+
+  def decrypt(message, key, date)
+    decrypt_message(message)
+    decrypted_hash(message, key, date)
+  end
+
   # def decrypt(message, key, offset)
   #
   # end
