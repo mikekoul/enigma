@@ -21,9 +21,4 @@ class Key
     @key.chars[3..4].join.to_i
   end
 
-  def random_key
-    rand.to_s[2..6]
-  end
-
-
 end

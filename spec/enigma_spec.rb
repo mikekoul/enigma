@@ -90,7 +90,7 @@ RSpec.describe Enigma do
     expect(enigma.decrypt("pmjdwhugztb", "02715")).to be_a Hash
   end
 
-  xit 'generates random_key and todays date if no key and date are given' do
+  it 'generates random_key and todays date if no key and date are given' do
     enigma = Enigma.new("hello_world")
     expect(enigma.encrypt("hello world")).to be_a Hash
   end

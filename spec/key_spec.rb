@@ -29,8 +29,4 @@ RSpec.describe Key do
     expect(@key.d_shift("02715")).to eq(15)
   end
 
-  it 'can generate a random key' do
-    expect(@key.random_key).to be_a String
-  end
-
 end

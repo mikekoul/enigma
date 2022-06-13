@@ -8,8 +8,10 @@ class Enigma
   include Encryptable
     include Decryptable
 
-  attr_reader :key, :date
-  def initialize(message, key = @key.random_key, date = Date.today.strftime('%d%m%y'))
+  attr_reader :message, :key, :date, :char_set
+  def initialize(message = File.open("lib/#{ARGV[1]}", "r").read.downcase.chomp,
+                key = rand.to_s[2..6],
+                date = Date.today.strftime('%d%m%y'))
     @key = Key.new(key)
     @date = Offset.new(date)
     @char_set = ("a".."z").to_a << " "
@@ -23,7 +25,7 @@ class Enigma
     !@char_set.include?(char.downcase)
   end
 
-  def encrypt(message, key = @key.random_key, date = Date.today.strftime('%d%m%y'))
+  def encrypt(message, key = rand.to_s[2..6], date = Date.today.strftime('%d%m%y'))
     encrypt_message(message)
     encrypted_hash(message, key, date)
   end
