@@ -10,7 +10,7 @@ RSpec.describe Key do
   end
 
   it 'return the key' do
-    expect(@key.num).to eq("02715")
+    expect(@key.key).to eq("02715")
   end
 
   it 'return value of a_shift' do

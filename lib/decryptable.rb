@@ -51,5 +51,4 @@ module Decryptable
     :date => @date.date }
   end
 
-
 end

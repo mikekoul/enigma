@@ -17,9 +17,9 @@ RSpec.describe Enigma do
   end
 
   it 'checks if punctuation and spaces are not included in character set' do
-    @enigma = Enigma.new('hello world!', '02715', '040895')
-    expect(@enigma.punc(' ')).to eq(false)
-    expect(@enigma.punc('!')).to eq(true)
+    enigma = Enigma.new('hello world!', '02715', '040895')
+    expect(enigma.punc(' ')).to eq(false)
+    expect(enigma.punc('!')).to eq(true)
   end
 
   it 'return encrypted a shift value' do
@@ -79,5 +79,36 @@ RSpec.describe Enigma do
     date: "040895" }
   )
   end
+
+  it 'returns todays date if no date is given for encrypt' do
+    enigma = Enigma.new("hello_world", "02715")
+    expect(enigma.encrypt("hello world", "02715")).to eq(
+      {
+        encryption: "pmjdwhugztb",
+        key: "02715",
+        date: "120622" }
+    )
+  end
+
+  it 'returns todays date if no date is given for decrypt' do
+    enigma = Enigma.new("hello_world", "02715")
+    expect(enigma.decrypt("pmjdwhugztb", "02715")).to eq(
+      {
+        decryption: "hello world",
+        key: "02715",
+        date: "120622" }
+    )
+  end
+
+  xit 'generates random_key and todays date if no key and date are given' do
+    enigma = Enigma.new("hello_world")
+    expect(enigma.encrypt("hello world")).to eq(
+      {
+        encryption: "hello world",
+        key: "02715",
+        date: "120622" }
+    )
+  end
+
 
 end
