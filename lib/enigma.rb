@@ -30,7 +30,7 @@ class Enigma
     encrypted_hash(message, key, date)
   end
 
-  def decrypt
+  def decrypt(message, key, date = Date.today.strftime('%d%m%y'))
     decrypted_hash(message, key, date)
   end
 

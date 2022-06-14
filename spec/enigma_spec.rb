@@ -72,7 +72,7 @@ RSpec.describe Enigma do
   end
 
   it 'returns decrypted hash' do
-    expect(@enigma.decrypt).to eq(
+    expect(@enigma.decrypt("hello world", "02715", '040895')).to eq(
     {
     decryption: "hello world",
     key: "02715",
@@ -87,7 +87,7 @@ RSpec.describe Enigma do
 
   it 'returns todays date if no date is given for decrypt' do
     enigma = Enigma.new("hello world", "02715")
-    expect(enigma.decrypt).to be_a Hash
+    expect(enigma.decrypt("hello world", "02715")).to be_a Hash
   end
 
   it 'generates random_key and todays date if no key and date are given' do
