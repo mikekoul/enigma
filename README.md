@@ -1,10 +1,10 @@
 
-
+```
 \\===== |=  /| ======    //===  ==\    /==  ==\
  \\     |  / |   ??     // __   || \  / ||  ||_\
  //     | /  |   ??    //   ||  ||  \/  ||  ||  \
 //===== |/  =| ====== //======  ==      ==  ==   \
-
+```
             :Welcome to THE MACHINE:
 
   The goal of this project was to use the CLI to encrypt a message file using two keys. ONe randomly generated and the other using todays date in DDMMYY format. Finally the program using the generated key and date-key will decrypt the message and make it readable again.
