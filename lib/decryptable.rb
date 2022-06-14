@@ -46,7 +46,7 @@ module Decryptable
 
   def decrypted_hash(message, key, date)
     decrypt_hash = {
-    :decryption => decrypt_message(encrypt_message(message)),
+    :decryption => decrypt_message(message),
     :key => @key.key,
     :date => @date.date }
   end
