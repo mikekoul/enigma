@@ -4,6 +4,8 @@ require './lib/offset'
 
 enigma = Enigma.new
 
-encrypted = File.open("lib/#{ARGV[1]}", "w").write(message[:encryption])
+encrypted = enigma.encrypt
 
-puts "Created #{ARGV[2]} with the key #{message[:key]} and date #{message[:date]}"
+encrypted_file = File.open("lib/#{ARGV[1]}", "w").write(encrypted[:encryption])
+
+puts "Created #{ARGV[1]} with the key #{encrypted[:key]} and date #{encrypted[:date]}"
